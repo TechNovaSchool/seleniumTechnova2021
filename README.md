@@ -22,8 +22,29 @@ driver.close(); - will close the browser
 2. name --> ex. driver.findElement(By.name("q"));
    - it looks for the value of the name attribute
    - it finds and return a WebElement with the matching attribute name
+    
+3. className
+-this locator is looking for class attribute value
+   - it doesn't have to be unique
+    -it will return first matching class value
+
+4. id
+- 99% id is an unique attribute
+-
+   
+5.partialLinkText
+-from example above driver.findElement(By.linkText("My test")).click();
+-similar to java contains
+
+6.tagName
+-this is looking for a tag name example <h2>, <a>
+
+7.cssSelector
+8.xpath
+   
 
 NoSuchElementException it happens when driver was not able to find webElement or slow internet
+ElementNotInteractableException
 
 1. Open a Chrome browser
 2. Go to https://google.com
@@ -46,3 +67,11 @@ Keys.   --> using keyboard commands
 ENTER
 Tab
 
+Task #5 -- Basic login authentication
+1. Open a Chrome browser
+2. Go to : http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx
+3. Verify title equals -->expected "Web orders Login"
+4. Enter username : Tester
+5. Enter Password: test
+6. Click "Sign In" button
+7. Verify title equals --> expected Web Orders
