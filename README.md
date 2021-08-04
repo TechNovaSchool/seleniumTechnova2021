@@ -24,7 +24,13 @@ driver.close(); - will close the browser
    - it finds and return a WebElement with the matching attribute name
 
 NoSuchElementException it happens when driver was not able to find webElement or slow internet
-  
 
-  
+1. Open a Chrome browser
+2. Go to https://google.com
+3. Click Gmail from top right
+4. Verify element contains Expected <Gmail>
+5. Go back to Google by using back() command
+6. Verify title contains "Google"
+7. Go back to Gmail using forward button
+8. Verify title contains Expected Gmail
   
