@@ -2,6 +2,7 @@ package selenium;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -15,9 +16,19 @@ public class FindElement {
         driver.get("https://www.google.com/");  // navigate to the webpage
 
 //        driver.findElement(By.linkText("Store")).click();
-        driver.findElement(By.name("test")). click();
+        driver.findElement(By.name("q")).sendKeys("apple", Keys.ENTER);
 
-//        driver.close();
+        String actualTitle = driver.getTitle();
+        String expectedToContain = "apple";
+
+        if(actualTitle.contains(expectedToContain)){
+            System.out.println("Pass");
+        }
+            else   {
+            System.out.printf("Fail");
+            }
+
+        driver.close();
 
 
     }

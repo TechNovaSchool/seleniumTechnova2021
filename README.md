@@ -33,4 +33,16 @@ NoSuchElementException it happens when driver was not able to find webElement or
 6. Verify title contains "Google"
 7. Go back to Gmail using forward button
 8. Verify title contains Expected Gmail
-  
+
+Task #4
+1. Open Chrome browser
+2. Go to google.com
+3. Write "apple" in search box
+4. Click google search button or Enter
+5. Verify title it should contain a word "apple"
+
+sendKeys("apple") -- send characters to the field (example search)
+Keys.   --> using keyboard commands
+ENTER
+Tab
+
