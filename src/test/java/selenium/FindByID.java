@@ -21,6 +21,7 @@ public class FindByID {
        String header = driver.findElement(By.tagName("h1")).getText();
         System.out.println(header);
 
+        driver.findElement(By.className("wt-flex-shrink-xs-0")).click();
 
 
 

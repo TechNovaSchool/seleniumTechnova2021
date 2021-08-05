@@ -13,7 +13,9 @@ driver.manage().window().maximize(); will maximize browser window
 
 driver.close(); - will close the browser
 
-<a href="www.test.com"> My test website </a>
+<a href="www.test.com">My test website</a>
+
+Locators:
 
 1. linkText from example above driver.findElement(By.linkText("My test website")).click();
   - works only for links
@@ -29,7 +31,7 @@ driver.close(); - will close the browser
     -it will return first matching class value
 
 4. id
-- 99% id is an unique attribute
+- 99% id is an attribute with unique value
 -
    
 5.partialLinkText
@@ -75,3 +77,8 @@ Task #5 -- Basic login authentication
 5. Enter Password: test
 6. Click "Sign In" button
 7. Verify title equals --> expected Web Orders
+
+
+-->getText(); will return a string element and allows us to do any string manipulations
+-->getAttribute(); will return value of the html element attribute 
+ex. driver.findElement(By.partialLinkText("Forgot")).getAttribute("href");
