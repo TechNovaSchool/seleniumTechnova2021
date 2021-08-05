@@ -42,6 +42,8 @@ Locators:
 -this is looking for a tag name example <h2>, <a>
 
 7.cssSelector
+
+
 8.xpath
    
 
@@ -82,3 +84,8 @@ Task #5 -- Basic login authentication
 -->getText(); will return a string element and allows us to do any string manipulations
 -->getAttribute(); will return value of the html element attribute 
 ex. driver.findElement(By.partialLinkText("Forgot")).getAttribute("href");
+
+--> We can store a web-element in Object from selenium library
+WebElement element = driver.findElement(By.partialLinkText("Forgot"));
+element.getText();
+element.click();

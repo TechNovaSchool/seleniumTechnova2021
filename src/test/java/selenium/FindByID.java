@@ -11,7 +11,7 @@ public class FindByID {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-      driver.get("https://www.etsy.com");
+        driver.get("https://www.etsy.com");
 //        driver.get("https://www.google.com");
 
 //     driver.findElement(By.id("global-enhancements-search-query"))
