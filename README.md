@@ -42,9 +42,38 @@ Locators:
 -this is looking for a tag name example <h2>, <a>
 
 7.cssSelector
+-element[attribute] => input[id]
+-element[a='value'] =>input[id="global-enhancements-search-query"]
+-element#value -->id attribute =>#global-enhancements-search-query
+-element.value --> class attribute value => .clear
 
+Navigating to the child element
+">" using this sign to move down to the child element ex. div>dialog>div>button[name="123"];
 
 8.xpath
+ - We have two of types of xpath:
+ - The absolute path and relative path
+    -----
+absolute 
+is starting with a single /(slash)
+-is not reliable, because it will break at any change in HTML structure
+
+relative path
+- starting with // (double slash)
+- instead of starting from html, it will start from given point
+- <//div> navigates to the very first <div> tag
+- is more stable locator
+
+1.//element[@attribute='value'] =>//*[@id="global-enhancements-search-query"]
+
+2. //*[@attribute='value']  => //*[@id="global-enhancements-search-query"]
+* star looks in all the web elements
+. example of unique element -->(//h2)[3] when we have more than 1 element
+  
+3. using contains:
+//element[contains(@attribute, 'value')] =>//input[ contains(@data-id,'search-query')]
+   
+  
    
 
 NoSuchElementException it happens when driver was not able to find webElement or slow internet
@@ -89,3 +118,15 @@ ex. driver.findElement(By.partialLinkText("Forgot")).getAttribute("href");
 WebElement element = driver.findElement(By.partialLinkText("Forgot"));
 element.getText();
 element.click();
+
+to open find line for locators:
+Mac --> CMD+F
+Win -->CTRL+F
+
+1. Open a Chrome browser
+2. Go to amazon.com
+3. Enter any search term
+4. Click on search button
+5. Verify title
+   use cssSelector
+   
