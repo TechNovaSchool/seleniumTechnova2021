@@ -68,10 +68,20 @@ relative path
 
 2. //*[@attribute='value']  => //*[@id="global-enhancements-search-query"]
 * star looks in all the web elements
-. example of unique element -->(//h2)[3] when we have more than 1 element
+. example of unique element -->(//h2)[] when we have more than 1 element
   
 3. using contains:
 //element[contains(@attribute, 'value')] =>//input[ contains(@data-id,'search-query')]
+   
+4. using text (exact text between opening and closing tag )
+   
+   <a class="gb_f" data-pid="23" href="https://mail.google.com/mail/&amp;ogbl" target="_top">Gmail</a>
+   
+   //a[.='Gmail']
+navigation in xpath :
+Parent to child --> //div/div[@role="status"] using "/" single slash
+Child to Parent --> //div[@role="status"]/.. using "/.." single slash and two periods
+
    
   
    
@@ -129,4 +139,7 @@ Win -->CTRL+F
 4. Click on search button
 5. Verify title
    use cssSelector
+   
+
+
    
