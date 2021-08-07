@@ -11,6 +11,7 @@ public class UltimateQATask {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
+        driver.navigate().refresh();
 
         driver.get("https://ultimateqa.com/complicated-page");
 
@@ -44,16 +45,5 @@ public class UltimateQATask {
         sumOfTwoNumbers.sendKeys(sumInText);
         submitButton.click();
         driver.close();
-
-
-
-
-
-
-
-
-
-
-
     }
 }

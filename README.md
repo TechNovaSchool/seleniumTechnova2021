@@ -140,6 +140,106 @@ Win -->CTRL+F
 5. Verify title
    use cssSelector
    
+----------------------------------------
+August 7
+
+What is Selenium?
+- tool to use to automate web-browsers/ UI
+- set of jar files / or library
+
+Why we are using Selenium?
+- Is tool which open source
+- multiple browser, different programing languages
+- support multiple platforms
+
+What is a web element ?
+- Everything we can see on the web page
+  (img, buttons, links)
+  
+What is a locator?
+- syntax that help to find any web-element
+
+What methods are using to locate a web-element ?
+- findElement(By.anylocators);
+
+How many locators do we know ?
+- 8 locators
+  - linkedText; 
+    <a> anchor tag 
+    is looking for exact text
+  - partialLinkedText
+    <a> 
+    is looking just for partial text 
+  - id
+    -findElement(By.id)
+    -has a unique value
+    we can have a dynamic id ( ex.id= "global-enhancements-search-query-14313413134")
+    
+  - className
+    we are using class attribute and its value (ex.class="wt-label-wt-screen-reader-only")
+  - name
+    we are using name attribute and its value (ex.name="search_query")
+  - tagName
+    We are using tags (ex. h2)
+      
+  - css
+  - helps to move from parent to child one flow,
+    -it has its own syntax 
+    .wt-label-wt-screen-reader-only will return the locator
+    #global-enhancements-search-query
+    input[data-id*="search"] - using star(*)/($) to check for partial attribute value
+    if your class value had a " " (space) in css just delete space and add . (period)
+    ".wt-input-btn-group__btn global-enhancements-search-input-btn-group__btn"
+    ".wt-input-btn-group__btn.global-enhancements-search-input-btn-group__btn"
+    how to move from parent to child (>)
+
+  - xpath
+    -absolute
+    starts with one slash (/)
+    starts from the beginning of the HTML
+    
+  -relative
+-starts with double slash (//)
+  allows to move from child to parent //input[@name="q"]/..
+  how to move from parent tp child one slash(/) //input[@name="q"]/div
+  //a[.='Gmail'] using dot to locate by exact text 
+  
+For reference look into document i sent on slack 
+
+Exception from Selenium
+ - NoSuchElementException
+Driver was not able to find this element on the page
+  -StaleElementException - related to internet speed
+   driver.navigate().refresh();
+
+
+Pre-conditionsHave a array with names 3 -4 values
+
+
+
+1. Open a Chrome browser
+2. Go to http://a.testaddressbook.com/sign_in
+3. Enter email using random of element of array adding @gmail.com at the end
+4. Enter a dummy password
+5. Click on sign in button
+6. Verify a message dispalyed “Bad email or password.”
+  
+
+  
+
+    
+    
+
+    
+
+
+
+
+
+
+
+
+   
 
 
    
