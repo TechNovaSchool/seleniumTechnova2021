@@ -222,7 +222,55 @@ Pre-conditionsHave a array with names 3 -4 values
 3. Enter email using random of element of array adding @gmail.com at the end
 4. Enter a dummy password
 5. Click on sign in button
-6. Verify a message dispalyed “Bad email or password.”
+6. Verify a message displayed “Bad email or password.”
+
+What is the Maven ?
+ -build automation tool
+What is a build?
+1. Create a folder
+2. Java files
+3. Create class
+4. Compile the code
+5. Test
+6. Deploy
+
+
+This will wait until apge is loaded 
+driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+this is implicit wait 
+is not same thing as Thread.sleep(2000);  
+   --> comes from java library
+   --> stop (pause) the execution of the program
+
+---------------------
+Check-boxes allow to select multiple answers at the same time
+Radio buttons allows to select only one
+
+- is.Selected(); --> checks if the checkbox is selected and will return true/false. This a boolean value
+- is.Enabled(); --> checks if the element is enabled to do any actions
+
+
+Task#2
+1. Open a chrome browser
+2. Go to https://parabank.parasoft.com/parabank/index.htm?ConnType=JDBC
+3. Enter any login
+4. Enter any password
+5. Add two amount from both accounts
+6. Verify sum amount (hint use getText())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 
   

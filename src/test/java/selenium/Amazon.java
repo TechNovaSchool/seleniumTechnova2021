@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class Amazon {
     public static void main(String[] args) {
@@ -16,6 +17,7 @@ public class Amazon {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         //2. Go to amazon.com
         driver.get("https://www.amazon.com/");
