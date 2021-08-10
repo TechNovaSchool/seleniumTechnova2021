@@ -24,6 +24,8 @@ public class AmazonCss {
          WebElement searchBtn = driver.findElement(By.cssSelector("input[value='Go']"));
          searchBtn.click();
 
+
+
         String actualTitle = driver.getTitle();
 
         String expectedTitle = "alexa";

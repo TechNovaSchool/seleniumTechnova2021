@@ -259,6 +259,41 @@ Task#2
 6. Verify sum amount (hint use getText())
 
 
+08.10 
+Recap
+isDisplayed(); => return true /false  
+isEnabled();
+isSelected();
+- return a boolean;
+- checkbox, radio buttons
+  
+  -driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  selenium
+  -Thread.sleep(10000) java method
+  
+Maven
+is build automation tool, allow us to manage our dependency 
+Maven provide pom.xml file to keep all dependencies, using maven we create folder structure
+
+---------------------
+findElement() => WebElement
+findElements() => multiple Weblements
+
+WebElement element = driver.findElement(By.id("id"));
+
+List<WebElement> listElements = driver.findElement(By.id("id"));
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
