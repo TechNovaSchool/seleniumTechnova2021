@@ -296,6 +296,53 @@ Task  #1 - Check all link on the page
 5. Count the number of the links that doesn't have text (expected 19)
 
 
+-----------------
+DropDowns
+To handle dropdown we use Select class
+
+        <select name="carlist">
+			<option value="honda">Honda</option>
+			<option value="nissan" selected="selected">Nissan</option>
+			<option value="ford">Ford</option>
+		</select>
+
+There are 2 ways to create dropdown :
+1 - is using select tag
+Step 1
+We located the weblement of the dropdown
+Step 2
+We create a Select class from selenium library  and add dropdown element as a parametr
+
+WebElement dropDown = driver.findElement(By.xpath("//select"));
+
+Select select = new Select(dropDown);
+
+Select select1 = new Select(driver.findElement(By.xpath("//select"));
+Most used methods:
+  ==>  select.selectByVisibleText(); takes string
+select.selectByVisibleText("Honda");
+
+  ==> select.byIndex(2); return Ford 
+  ==>select.byValue(); takes string
+
+
+
+      <select name="carlist">
+			<option value="honda">Honda</option>
+			<option value="nissan" selected="selected">Nissan</option>
+			<option value="ford">Ford</option>
+		</select>
+
+
+2 - could be used different tags ex (div)
+
+When we have dropdown created using select tag 
+In selenium we used "Select" class
+
+When is created by any other tag and not select, the webelement is handled as a regular web element
+
+
+
 
 
 
