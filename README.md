@@ -276,11 +276,24 @@ Maven provide pom.xml file to keep all dependencies, using maven we create folde
 
 ---------------------
 findElement() => WebElement
-findElements() => multiple Weblements
+-exception:NoSuchElementExpected
+
+findElements() => multiple WebElements
+- exception --> It will not throw any exception
+return an empty list
 
 WebElement element = driver.findElement(By.id("id"));
 
 List<WebElement> listElements = driver.findElement(By.id("id"));
+
+Task FindElements
+
+Task  #1 - Check all link on the page
+1. Open Chrome browser
+2. Go to https://www.technovaschool.com/
+3. Count the number of the links on the web-page (expected 41)
+4. Print out all the texts of the links on the page
+5. Count the number of the links that doesn't have text (expected 19)
 
 
 
