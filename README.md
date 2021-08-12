@@ -276,7 +276,7 @@ Maven provide pom.xml file to keep all dependencies, using maven we create folde
 
 ---------------------
 findElement() => WebElement
--exception:NoSuchElementExpected
+-exception:NoSuchElementException
 
 findElements() => multiple WebElements
 - exception --> It will not throw any exception
@@ -284,7 +284,7 @@ return an empty list
 
 WebElement element = driver.findElement(By.id("id"));
 
-List<WebElement> listElements = driver.findElement(By.id("id"));
+List<WebElement> listElements = driver.findElements(By.id("id"));
 
 Task FindElements
 
@@ -318,12 +318,38 @@ WebElement dropDown = driver.findElement(By.xpath("//select"));
 Select select = new Select(dropDown);
 
 Select select1 = new Select(driver.findElement(By.xpath("//select"));
+
 Most used methods:
   ==>  select.selectByVisibleText(); takes string
 select.selectByVisibleText("Honda");
 
   ==> select.byIndex(2); return Ford 
   ==>select.byValue(); takes string
+
+  ==>select.getFirstSelectedOption();
+  --Can be used to get default option on the select tag
+  -- Can be used after we select an option
+
+ ==>select.getOptions();
+    return us a List<WebElement>
+ ==>select.getAllSelectedOptions();
+  --Can be used to get all selected option as a WebElement
+
+  ==> select.deSelectAll();
+ -- This method will deselect all selected values from dropdown
+------------
+Faker library
+This library allows us to create fake data 
+
+Faker faker = new Faker();
+
+
+
+
+
+
+
+
 
 
 
@@ -339,7 +365,10 @@ select.selectByVisibleText("Honda");
 When we have dropdown created using select tag 
 In selenium we used "Select" class
 
-When is created by any other tag and not select, the webelement is handled as a regular web element
+When is created by any other tag and not select, the WebElement is handled as a regular web element
+
+
+
 
 
 

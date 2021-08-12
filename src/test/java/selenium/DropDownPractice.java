@@ -20,10 +20,15 @@ public class DropDownPractice {
 
         Select select = new Select(dropDown);
 
-//        Select select1 = new Select(driver.findElement(By.xpath("//select")));
+ Select select1 = new Select(driver.findElement(By.xpath("//select")));
         select.selectByVisibleText("Audi");
         select.selectByIndex(2);
         select.selectByValue("saab");
+        select.getFirstSelectedOption();
+        select.getOptions();
+        select1.getAllSelectedOptions();
+        select.deselectAll();
+
 
 
     }

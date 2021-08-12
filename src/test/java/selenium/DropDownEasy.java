@@ -15,7 +15,7 @@ public class DropDownEasy {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("http://the-internet.herokuapp.com/dropdown");
+        driver.get("https://semantic-ui.com/modules/dropdown.html");
 
         WebElement dropDown = driver.findElement(By.id("dropdown"));
 
