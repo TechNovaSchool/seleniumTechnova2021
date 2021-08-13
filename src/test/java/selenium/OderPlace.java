@@ -61,13 +61,30 @@ public class OderPlace {
             street.sendKeys(faker.address().streetAddress());
             city.sendKeys(faker.address().city());
             state.sendKeys(faker.address().state());
-            zipCode.sendKeys(faker.address().zipCode());
-
-
+            zipCode.sendKeys(faker.address().zipCode().substring(0, 5));
 
 //        10.Click on "visa" radio button
+        WebElement creditCard = driver.findElement(By.cssSelector("label[for*=\"cardList_0\"]"));
+        creditCard.click();
+
 //        11.Generate card number using JavaFaker
+        WebElement cardNumber = driver.findElement(By.cssSelector("#ctl00_MainContent_fmwOrder_TextBox6"));
+        cardNumber.sendKeys(faker.finance().creditCard().replaceAll("-", ""));
+        //set date
+        WebElement date = driver.findElement(By.cssSelector("#ctl00_MainContent_fmwOrder_TextBox1"));
+        date.sendKeys("08/12");
 //        12.Click on "Process"
+        WebElement processBtn = driver.findElement(By.xpath("//a[.='Process']"));
+        processBtn.click();
 //        13. Verify success message "New order has been successfully added."
+        WebElement message = driver.findElement(By.xpath("//div[@class=\"buttons_process\"]/strong"));
+        if(message.isDisplayed()) {
+            System.out.println("Test Pass");
+        }
+        else {
+            System.out.println("Test Fail");
+        }
+        driver.close();
     }
+
 }
