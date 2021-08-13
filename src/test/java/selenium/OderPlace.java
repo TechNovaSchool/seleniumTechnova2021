@@ -57,6 +57,13 @@ public class OderPlace {
         WebElement city = driver.findElement(By.xpath("//input[@id=\"ctl00_MainContent_fmwOrder_TextBox3\"]"));
         WebElement state = driver.findElement(By.xpath("//input[@id=\"ctl00_MainContent_fmwOrder_TextBox4\"]"));
         WebElement zipCode = driver.findElement(By.xpath("//input[@id=\"ctl00_MainContent_fmwOrder_TextBox5\"]"));
+            name.sendKeys(faker.name().firstName());
+            street.sendKeys(faker.address().streetAddress());
+            city.sendKeys(faker.address().city());
+            state.sendKeys(faker.address().state());
+            zipCode.sendKeys(faker.address().zipCode());
+
+
 
 //        10.Click on "visa" radio button
 //        11.Generate card number using JavaFaker
