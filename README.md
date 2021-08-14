@@ -342,6 +342,54 @@ Faker library
 This library allows us to create fake data 
 
 Faker faker = new Faker();
+clear(); --> is a selenium method to clear value before set any new values using sendKeys.... workaround that:
+"    quantity.clear();
+quantity.sendKeys(Keys.BACK_SPACE,"someValue");"
+
+
+============================================
+08.14 
+When attribute is changing a part of its value ex. below
+
+<input id="ctl00_MainContent_fmwOrder_txtName">   </input> ---> static
+id="65497894_ctl00_MainContent_fmwOrder_txtName" ---> Dynamic locator
+id="tretdsfhs_ctl00_MainContent_fmwOrder_txtName"
+
+---Css:
+==> 
+input[id*='MainContent']
+input[id$='MainContent']
+
+---xpath:
+==>   //id[contains(text(),'t')] ---> //id[contains(text(),'ctl00_MainContent_fmwOrder_txtName')]
+==>  //id[start-with(@attributeName, 'value')]
+==>  //id[ends-with(@attributeName, 'value')]
+
+Project structure:
+Java 
+  Selenium
+  WebDriver manager
+  faker library
+
+ WebElement message = driver.findElement(By.xpath("//div[@class=\"buttons_process\"]/strong"));
+ if(message.isDisplayed()) {
+ System.out.println("Test Pass");
+}
+ else {
+ System.out.println("Test Fail");
+}
+
+Assertions
+
+
+
+
+
+
+
+
+
+
 
 
 

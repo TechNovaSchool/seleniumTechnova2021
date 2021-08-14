@@ -52,4 +52,35 @@ public class SmartbearMain {
         password.sendKeys("test");
         signinButton.click();
     }
+
+//    Part I. Method for verifying name exist on the table
+//    Create a method named verifyOrder that takes WebDriver object and String name
+//    This method should verify if given name exists in orders
+        public static void verifyOrder(WebDriver driver, String name) {
+        List<WebElement> listOfNames = driver.findElements(By.xpath("//table[@id='ctl00_MainContent_orderGrid']/tbody/tr/td[2]"));
+
+        for( WebElement existingName: listOfNames) {
+            if(existingName.getText().equals(name)) {
+                System.out.println(name + " exist in the list of orders.");
+                return;
+            }
+        }
+
+     }
+
+//    Part II. Method to print name and cities
+//    Create a method named printNameAndCities that takes WebDriver object as parameter
+//    This method should simply print all the names  and cities in the List of All orders
+    public static void printNameAndCities (WebDriver driver) {
+        List<WebElement> listOfCities = driver.findElements(By.xpath("//table[@id=\"ctl00_MainContent_orderGrid\"]/tbody/tr/td[7]"));
+        List<WebElement> listOfNames = driver.findElements(By.xpath("//table[@id='ctl00_MainContent_orderGrid']/tbody/tr/td[2]"));
+
+        for(int i = 0; i<listOfCities.size(); i++) {
+            System.out.println(listOfNames.get(i).getText() + " lives in " + listOfCities.get(i).getText());
+
+        }
+
+    }
+
+
 }
