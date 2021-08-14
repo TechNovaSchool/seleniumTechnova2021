@@ -66,7 +66,6 @@ public class SmartbearMain {
             }
         }
             System.out.println(name + " do not  exist in the list of orders.");
-
      }
 
 //    Part II. Method to print name and cities
