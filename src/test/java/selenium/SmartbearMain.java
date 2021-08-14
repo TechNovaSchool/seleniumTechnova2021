@@ -65,6 +65,7 @@ public class SmartbearMain {
                 return;
             }
         }
+            System.out.println(name + " do not  exist in the list of orders.");
 
      }
 

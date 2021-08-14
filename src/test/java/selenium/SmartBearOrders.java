@@ -15,7 +15,7 @@ public class SmartBearOrders {
 
         driver.get("http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx");
         SmartbearMain.loginToSmartBear(driver);
-//        SmartbearMain.verifyOrder(driver, "Kiril Johns");
-        SmartbearMain.printNameAndCities(driver);
+       SmartbearMain.verifyOrder(driver, "Mark Smith");
+//        SmartbearMain.printNameAndCities(driver);
     }
 }
