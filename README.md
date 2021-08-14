@@ -370,6 +370,7 @@ Java
   Selenium
   WebDriver manager
   faker library
+  testNG
 
  WebElement message = driver.findElement(By.xpath("//div[@class=\"buttons_process\"]/strong"));
  if(message.isDisplayed()) {
@@ -380,6 +381,44 @@ Java
 }
 
 Assertions
+
+TestNG
+Stands for Test Next Generation
+it an open source library
+is a UNIT test framework
+it an improved version of jUnit, nUnit;
+
+TestNg has more options for annotation compare to jUnit
+---->
+Annotations: 
+
+1 - @Test -- Test automation allows us to create independent test
+By default will select in alphabetical order
+
+2- @BeforeClass
+--This method will run before everything else in our class
+---> driver instantiating 
+---> ex .
+driver.manage().window().maximize();
+driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+3 @BeforeMethod
+This method will run ONCE before each Test
+is useful when we want to setup some conditions to each test
+
+4    @AfterMethod
+This will run after every test annotations
+useful for ex:
+driver.close();
+driver.quit();
+ 5-  @AfterClass
+This annotation will run after everything else in the class is done (run)
+
+@BeforeClass
+public void setUp()
+
+5-  @AfterClass
+public void tearDown()
 
 
 
