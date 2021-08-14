@@ -420,6 +420,41 @@ public void setUp()
 5-  @AfterClass
 public void tearDown()
 
+Assertions:
+-- Assertions are coming testng library
+-- this is a method which allows us to do verification
+Assert.assertEquals
+   It takes 3 parameters
+        --> actual value
+        -->expected value
+        -->message which will display on the console just in case if test failed
+
+Ex: Assert.assertEquals(driver.getTitle(), "expected title", "message here")
+
+Assert.assertTrue
+This method will verify the boolean value :
+Ex:
+--isDisplayed();
+--isEnabled();
+--isSelected();
+--"test".equals("test")
+
+Assert.fail();
+This method will verify if the condition will return FALSE, in this case it will pass the test
+
+Task:
+Task DeleteAll
+1. Open a chrome browser
+2. Go to :http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx
+3. Enter username : “Tester”
+4. Enter password: “test”
+5. Click on logon button
+6. Click checkAll
+7. Click “Delete Selected”
+8. Assert “List of orders is empty. In order to add new order use  this link.” text is displayed
+
+
+
 
 
 
