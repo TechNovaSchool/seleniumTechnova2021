@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import selenium.SmartbearMain;
 
@@ -14,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 
 public class DeleteAll {
     WebDriver driver;
-    @BeforeClass
+    @BeforeMethod
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -33,9 +34,9 @@ public class DeleteAll {
       //  Click checkAll
         WebElement checkAllBTn = driver.findElement(By.id("ctl00_MainContent_btnCheckAll"));
         checkAllBTn.click();
+
         WebElement deleteAllBtn = driver.findElement(By.cssSelector("input[type=\"submit\"]"));
 //        Click “Delete Selected”
-        checkAllBTn.click();
         deleteAllBtn.click();
         WebElement oderMessage = driver.findElement(By.id("ctl00_MainContent_orderMessage"));
 //        Assert “List of orders is empty. In order to add new order use this link.” text is displayed
