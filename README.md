@@ -454,6 +454,91 @@ Task DeleteAll
 8. Assert “List of orders is empty. In order to add new order use  this link.” text is displayed
 
 
+---------
+08.17
+TestNG is a dependency, it allows to run the test
+framework for unit testing
+It allows us to run test using annotations
+Why we are using TestNG?
+Take advantage of build in methods, annotations
+
+@Test
+- to run independent test
+- By default will select in alphabetical order
+
+@BeforeClass
+-to run something ONCE before class
+@AfterClass
+-to run something ONCE after class
+@BeforeMethod /@AfterMethod
+will run before and after each test
+
+assert.True
+---expected to the true result fot the boolean value
+assert.False
+---expected to the FALSE result fot the boolean value
+assert.assertEquals
+
+assert.assertNotEquals
+=======================
+
+Priority 
+
+Default value is zero = (priority = 0)
+The smaller number we have the earlier the test will run
+we can have even negative numbers (priority = -1)
+
+@Ignore
+
+Is used to ignore test 
+also we can just comment 
+========================
+
+Dependency
+It will overwrite priority
+
+dependsOnMethods will add the logic to which method we need to use first
+ex:
+@Test (priority = 0, dependsOnMethods = "secondTest")
+public void firstTest() {
+System.out.println("My first test");
+}
+
+    @Test (priority = 1)
+    public void secondTest() {
+        System.out.println("My second test");
+    }
+
+===================================
+iFrame
+HMTL inside of another HTML
+Selenium can not focus at two HTML at the same time,
+so if we want to perform any action we need to switch to another HTML
+
+If we have an element in inner HTML we can not perform any actions before we switch our diver focus
+
+WebElement iframe = driver.findElement()
+driver.switchTo(iframe)
+
+
+We can switch frames by index number
+driver.switchTo.frame(0)
+
+We can switch iframe by id value of this iframe
+driver.switchTo.frame("idvalue");
+
+======
+
+Using this syntex to switch back to main iframe
+
+driver.switchTo().parentFrame();
+driver.switchTo().defaultContent();
+
+
+
+
+
+
 
 
 
