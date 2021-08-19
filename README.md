@@ -534,6 +534,18 @@ Using this syntex to switch back to main iframe
 driver.switchTo().parentFrame();
 driver.switchTo().defaultContent();
 
+------------------
+---> Hardcoding 
+- Input information is coming from the code (java classes)
+- To avoid hardcoding in test data we used faker library
+-ex:
+  userName.sendKeys("Tester");
+  password.sendKeys("test");
+  -Test data is it should NEVER be hardcoded
+  
+To access test data/ configuration data we need to have a separate file outside of the code
+  
+  
 
 
 

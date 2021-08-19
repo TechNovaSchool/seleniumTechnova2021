@@ -16,6 +16,7 @@ public class AmazonCss {
 
         driver.get("https://www.amazon.com");
 
+
         String [] array = {"alexa","iphone"};
 //        3. Enter any search term
         WebElement searchBox = driver.findElement(By.cssSelector("input[id='twotabsearchtextbox']"));
