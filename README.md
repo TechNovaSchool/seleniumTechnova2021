@@ -544,6 +544,34 @@ driver.switchTo().defaultContent();
   -Test data is it should NEVER be hardcoded
   
 To access test data/ configuration data we need to have a separate file outside of the code
+
+Properties file:
+// 1. Create a path for connection to out file
+String path = "Configuration.properties";
+
+        //2. We will create Properties object
+
+        Properties properties = new Properties();
+
+        //3. Open the file using FileInputStream
+
+        FileInputStream file = new FileInputStream(path);
+
+        //4. Load the properties to file into the properties object
+        properties.load(file);
+
+        //5. Read the values from the file using a method getProperty()
+
+Driver Utility
+- 1)It's easier to have code which we are using often inside of utility, so we do not need to retype
+every time same code 
+  
+  -2) We always want to use same driver instance for our test
+  
+  
+
+
+
   
   
 
