@@ -570,6 +570,9 @@ every time same code
 
 
 option+cmd+L
+
+Headless browser - it's browser without GUI (Graphical user interface)
+CLI - stand for command line interface
   
   
 
