@@ -11,7 +11,7 @@ public class SingeltonPracticeTest {
         System.out.println(str1);
         System.out.println(str2);
 
-        Singelton str = new Singelton();
+//        Singelton str = new Singelton();
     }
 
 }
