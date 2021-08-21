@@ -648,7 +648,40 @@ Hard assertions will stop execution of the test
 ----
 Soft Assertions
 - this assertion will not stop the execution of the test
--
+- it will record the result at the end of test 
+- this methods are not static, so we need to create an object to use the method from that class
+
+EX:
+@Test
+public void softAssertions() {
+System.out.println("Test for soft assert is running");
+softAssert = new SoftAssert();
+softAssert.assertEquals(3,5,"This soft assert failed");
+System.out.println("Test one is running");
+softAssert.assertTrue(false);
+System.out.println("Test for assert true");
+}
+
+    @AfterMethod
+    public void tearDown(){
+        softAssert.assertAll();
+    }
+In order to get the result from soft assertion we need to use assertAll();
+We can combine soft and hard assertions, but be aware hard will stop the the line if the assertions fail
+
+When we should we hard assertions and soft assertions?
+Soft can be used for (ex. typos) something not super important in a whole flow of the test
+if this assertions will fail it will not be a big problem
+
+=============
+POM 
+Page object model design
+POM - is not a framework, is a design pattern
+1- We need to create a constructor in the class and call the method 
+---> we are using PageFactory class for this
+And we initialize connection between current java class webdriver
+
+
 
 
 

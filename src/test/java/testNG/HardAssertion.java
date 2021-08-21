@@ -21,6 +21,8 @@ public class HardAssertion {
         System.out.println("Test for soft assert is running");
         softAssert = new SoftAssert();
         softAssert.assertEquals(3,5,"This soft assert failed");
+        Assert.assertEquals(1,3,"This hard assertion failed");
+
         System.out.println("Test one is running");
         softAssert.assertTrue(false);
         System.out.println("Test for assert true");
