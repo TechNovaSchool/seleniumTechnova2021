@@ -681,6 +681,29 @@ POM - is not a framework, is a design pattern
 ---> we are using PageFactory class for this
 And we initialize connection between current java class webdriver
 
+--> Every time you create a "PAGE" class for each page of your application 
+you have to pass PageFactory.initElements() inside of the constructor.
+--> Then we have to use @FindBy to locate WebElements
+--> What comes with Page Object Model / What are the advantages of the Page Object Model (POM)
+--> re-usability
+--> easy to maintain
+--> easy to manage/edit : if there are any small changes like locator being different 
+we will know exactly which class to go and fix the issue
+
+src
+-->test
+------->java
+---------->pages
+---------->tests
+---------->Util
+------->Config
+------->pom.xml
+
+What is POM? (Page Object Model Design)
+--> We create separate pages for the WebElements, we keep webElements separate by pages
+--> Creating a object from that page we can use any methods inside of our Page.(class with webelemetns)
+
+
 
 
 
