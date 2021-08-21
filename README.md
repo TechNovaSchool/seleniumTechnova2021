@@ -638,8 +638,17 @@ To move back to "main" HTML
 
 --------
 Windows handle
-getWindowsHandle() --- an unique value of our tab/windows also retun value of the current tab of where is driver
+getWindowsHandle() --- an unique value of our tab/windows also return value of the current tab of where is driver
 getWindowsHandles() --- a set of value
+---------------
+
+Assertions
+Assertions comes from Assert class and also we can call them hard assertions
+Hard assertions will stop execution of the test
+----
+Soft Assertions
+- this assertion will not stop the execution of the test
+-
 
 
 
