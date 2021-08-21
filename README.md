@@ -573,13 +573,100 @@ option+cmd+L
 
 Headless browser - it's browser without GUI (Graphical user interface)
 CLI - stand for command line interface
-  
-  
 
 
 
-  
-  
+===========================================
+08.21.21
+
+What is a TestNG?
+ - is an open source tool, allows us to run test independently 
+ - is a UNIT test framework
+
+@ Annotations
+ ---> @Test --- run the test itself (method)
+ ---> @BeforeClass --- run before everything inside of that class
+ ---> AfterClass --- run after everything inside of that class
+ ---> BeforeMethod --- run before every @Test annotations
+ ---> AfterMethod --- run after every @Test annotations
+-------
+@Ignore
+This will skip the test
+or we can just comment the test //
+-------------------
+ Priority - @Test (priority = 1) (priority = -3) (priority = 0)
+ Dependency - dependsOnMethods = "nameofanothermethod")
+ Without any priority it will run in alphabetical order
+-----------------------
+ Assertions
+  -AssertTrue
+  -AssertFalse
+ -->
+isDisplayed
+isSelected
+isEnabled()
+contains because will return a boolean value
+
+  -AssertEquals (actual value, expected value,error message);
+
+=============
+ Alerts
+-------
+We know 2 types of alerts:
+ -->HTML ALert
+We locate this as a regular weblement and click or any actions on that alerts
+ -->JavaScript Alerts
+   -- Warning -- this a warning message before any action will be performed (we can only accept)
+   -- Confimation - this pop up we can confirm or decline
+   -- Prompt - this allows us to accept, decline, also to any message inputs
+
+To handle alerts we create an object from alert class
+Alert alert  = driver.switchTo().alert()
+This a selenium library 
+--------
+iFrame
+What is an iframe?
+this is a HTML inside of another html (inner HMTL)
+How we can handle iframe?
+-using switTo().frame(0) //index
+-using switTo().frame(webelement)
+-using switTo().frame(idValue)
+
+To move back to "main" HTML
+--swithTo().parentFrame()
+--swithTo().defaultFrame()
+
+--------
+Windows handle
+getWindowsHandle() --- an unique value of our tab/windows also retun value of the current tab of where is driver
+getWindowsHandles() --- a set of value
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

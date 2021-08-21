@@ -9,12 +9,12 @@ public class Priority {
 //        System.out.println("My third test");
 //    }
 
-    @Test (priority = 0, dependsOnMethods = "secondTest")
+    @Test (priority = 5, dependsOnMethods = "secondTest")
     public void firstTest() {
         System.out.println("My first test");
     }
 
-    @Test (priority = 1)
+    @Test (priority = 6)
     public void secondTest() {
         System.out.println("My second test");
     }

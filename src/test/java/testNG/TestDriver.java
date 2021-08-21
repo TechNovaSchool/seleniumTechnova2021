@@ -10,5 +10,6 @@ public class TestDriver {
     public void testMyDriver(){
 
         Driver.getDriver().get("https://www.amazon.com/");
+        Driver.quitDriver();
     }
 }

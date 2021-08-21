@@ -57,7 +57,6 @@ public class PropertiesPractice {
         password.sendKeys(Config.getProperty("password"));
         signinButton.click();
 
-
     }
 
 

@@ -34,7 +34,7 @@ public class TestNGPractice {
         Assert.assertTrue("test".equals("test"));// check if the value is true
 
         Assert.assertFalse("test".equals("tes12t"), "message for false");// check if the value is false
-
+        Assert.assertTrue("test".contains("test2"), "test1");
 
    }
 

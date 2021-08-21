@@ -78,7 +78,9 @@ public class EditOrders {
         for (WebElement names : allNames ) {
             if (names.getText().equals("Michael Jordan")) {
                 Assert.assertEquals(names.getText(), "Michael Jordan", "The test fails for edit");
-
+                Assert.assertEquals(1,"1");
+                //==  in js ===
+                //!= in js !===
            }
         }
 
