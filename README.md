@@ -702,8 +702,66 @@ src
 What is POM? (Page Object Model Design)
 --> We create separate pages for the WebElements, we keep webElements separate by pages
 --> Creating a object from that page we can use any methods inside of our Page.(class with webelemetns)
+=====================
+08.24
 
+SYNCHRONIZATION:
+- Definition: Multiple things moving, operating at the same time.
+- In our case, we are synchronizing our WebDriver and browser.
+- Since our WebDriver goes faster than the browser, we need to apply different waits at different points in our program.
+- If the browser and WebDriver is not synchronized, we will get different types of exceptions depending on situation.
+  Such as: NoSuchElementException, ElementNotInteractableException etc..
 
+What can we do to synchronize our code?
+     1- Thread.sleep()
+Understanding Thread.sleep();
+        --> this method has nothing to do with webdriver, browser, or selenium.
+        --> Thread.sleep() method comes straight from Java.
+        --> Thread.sleep() is basically like a pause button for our program flow.
+        --> It will stop the whole program flow for given duration without looking for ANY CONDITION AT ALL.
+        --> It is not considered a good practice to use this in our code.
+        --> We should avoid using it UNLESS WE HAVE TO.
+    2- Implicit Wait
+        --> by default it is 0
+        --> every time findElement or findElements methods are used, if the webdriver can't locate the WebElement, implicit wait will be triggered.    
+    --> we wet set it only once, and it will apply to that whole driver session
+
+    3- Explicit Wait 
+        --> Explicit wait is applied using WebDriverWait classes object.
+        --> WebDriverWait comes from Selenium.
+        --> Using WebDriverWait, we can wait until:
+        ->element is visible
+        ->element is displayed
+        ->element is invisible
+..
+SYNTAX:
+WebDriverWait wait = new WebDriverWait(driver, seconds);
+wait.until(ExpectedConditions.visibilityOf(webElement));
+-> this will be only applied once at the line that it is called.
+
+==========================================
+ACTIONS:
+        -> Actions class comes from Selenium
+        -> Actions class allows us to do advanced mouse and keyboard actions.
+examples:
+    -clickAndHold
+    -dragAndDrop
+    -moveToElement
+    -contextClick (right click)
+
+Syntax:
+//1- Create the object of Actions class, and pass the driver instance into constructor
+   Actions actions = new Actions(driver);
+
+//2- Use the actions instance to get the Actions class methods.
+actions.moveToElement()
+
+//3- After using the method we MUST use .perform() method at the end to make your driver do these actions.
+-> if you do not use .perform() it will not perform the methods used.
+
+ex#1 :actions.moveToElement().perform();
+ex#2 :actions.moveToElement();
+actions.perform();
 
 
 
