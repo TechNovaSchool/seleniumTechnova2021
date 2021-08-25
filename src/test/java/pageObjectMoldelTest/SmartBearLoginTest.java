@@ -3,6 +3,7 @@ package pageObjectMoldelTest;
 import Utilities.Config;
 import Utilities.Driver;
 import com.github.javafaker.Faker;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -86,6 +87,8 @@ Task — NO password
         String expectedMessage = "Invalid Login or Password.";
 
         Assert.assertEquals(errorMessage,expectedMessage,"The message doesn't match");
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+
     }
 
     @AfterClass

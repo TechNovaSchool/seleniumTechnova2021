@@ -676,7 +676,7 @@ if this assertions will fail it will not be a big problem
 =============
 POM 
 Page object model design
-POM - is not a framework, is a design pattern
+POM - is NOT a framework, is a design pattern
 1- We need to create a constructor in the class and call the method 
 ---> we are using PageFactory class for this
 And we initialize connection between current java class webdriver
