@@ -1,0 +1,117 @@
+package api.tests;
+
+import api.API_models.Fields;
+import api.API_models.Record;
+import api.API_models.RequestBody;
+import api.API_models.ResponseBody;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import io.restassured.RestAssured;
+import io.restassured.common.mapper.TypeRef;
+import io.restassured.internal.http.Status;
+import io.restassured.response.Response;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class AirtableTests {
+
+    private final ObjectMapper objectMapper = new ObjectMapper();
+
+    @Test
+    public void getRecord() throws Exception {
+        Response response = RestAssured.given()
+                .header("Authorization","Bearer " +"keyUciDKN0atCXT7w")
+                .urlEncodingEnabled(false)
+                .get("https://api.airtable.com/v0/app14gUrLadaStkxx/Table%201");
+
+
+
+        System.out.println(response.statusCode());
+        System.out.println(response.asString());
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        ResponseBody rb = objectMapper.readValue(response.asString(), ResponseBody.class);
+
+//        System.out.println(rb.getRecords().size());
+//        System.out.println(rb.getRecords().get(1).getFields().getFirstname());
+//        System.out.println(rb.getRecords().get(1).getFields().getPhone());
+
+        for (Record elements : rb.getRecords()) {
+            if(elements.getFields().getLastname().startsWith("W")) {
+                System.out.println(elements.getFields().getFirstname() + " "
+                        + elements.getFields().getLastname()  + " "
+                        + elements.getFields().getPhone() + " "
+                        + elements.getFields().getAddress());
+            }
+        }
+
+
+    }
+
+    @Test
+    public void createRecord() {
+        Fields fields = new Fields();
+        fields.setFirstname("James");
+        fields.setLastname("Bond");
+        fields.setPhone("777-999-7777");
+        fields.setAddress("999 Test this API");
+
+        Record record = new Record();
+        record.setFields(fields);
+        List<Record> records = new ArrayList<>();
+        records.add(record);
+
+        RequestBody requestBody = new RequestBody();
+        requestBody.setRecords(records);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        String jsonString = toJsonString(requestBody);
+
+        System.out.println("jsonString = " + jsonString);
+    }
+
+    @Test
+    public void postRecords_GivenValidRecord_Returns201(){
+
+        Fields fields = new Fields();
+        fields.setFirstname("James");
+        fields.setLastname("Bond");
+        fields.setPhone("777-999-7777");
+        fields.setAddress("999 Test this API");
+
+        Record record = new Record();
+        record.setFields(fields);
+        List<Record> records = new ArrayList<>();
+        records.add(record);
+
+        RequestBody requestBody = new RequestBody();
+        requestBody.setRecords(records);
+
+        Response response = RestAssured.given()
+                .header("Authorization","Bearer keyUciDKN0atCXT7w")
+                .urlEncodingEnabled(false).contentType("application/json")
+                .body(requestBody)
+                .post("https://api.airtable.com/v0/app14gUrLadaStkxx/Table%201");
+
+        Assert.assertEquals(response.getStatusCode(), 200);
+
+        ResponseBody responseBody = response.as(new TypeRef<ResponseBody>() {});
+    }
+
+    private String toJsonString(Object object){
+        String jsonString = null;
+
+        try {
+            jsonString = objectMapper
+                    .writerWithDefaultPrettyPrinter()
+                    .writeValueAsString(object);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return jsonString;
+    }
+}
