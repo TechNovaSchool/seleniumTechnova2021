@@ -27,19 +27,12 @@ public class AirtableTests {
                 .urlEncodingEnabled(false)
                 .get("https://api.airtable.com/v0/app14gUrLadaStkxx/Table%201");
 
-
-
         System.out.println(response.statusCode());
         System.out.println(response.asString());
 
         ObjectMapper objectMapper = new ObjectMapper();
 
         ResponseBody rb = objectMapper.readValue(response.asString(), ResponseBody.class);
-
-//        System.out.println(rb.getRecords().size());
-//        System.out.println(rb.getRecords().get(1).getFields().getFirstname());
-//        System.out.println(rb.getRecords().get(1).getFields().getPhone());
-
         for (Record elements : rb.getRecords()) {
             if(elements.getFields().getLastname().startsWith("W")) {
                 System.out.println(elements.getFields().getFirstname() + " "
@@ -48,38 +41,14 @@ public class AirtableTests {
                         + elements.getFields().getAddress());
             }
         }
-
-
     }
 
-    @Test
-    public void createRecord() {
-        Fields fields = new Fields();
-        fields.setFirstname("James");
-        fields.setLastname("Bond");
-        fields.setPhone("777-999-7777");
-        fields.setAddress("999 Test this API");
-
-        Record record = new Record();
-        record.setFields(fields);
-        List<Record> records = new ArrayList<>();
-        records.add(record);
-
-        RequestBody requestBody = new RequestBody();
-        requestBody.setRecords(records);
-
-        ObjectMapper objectMapper = new ObjectMapper();
-        String jsonString = toJsonString(requestBody);
-
-        System.out.println("jsonString = " + jsonString);
-    }
 
     @Test
-    public void postRecords_GivenValidRecord_Returns201(){
-
+    public void postRecords() throws Exception{
         Fields fields = new Fields();
         fields.setFirstname("James");
-        fields.setLastname("Bond");
+        fields.setLastname("LeBron");
         fields.setPhone("777-999-7777");
         fields.setAddress("999 Test this API");
 
@@ -98,20 +67,49 @@ public class AirtableTests {
                 .post("https://api.airtable.com/v0/app14gUrLadaStkxx/Table%201");
 
         Assert.assertEquals(response.getStatusCode(), 200);
-
-        ResponseBody responseBody = response.as(new TypeRef<ResponseBody>() {});
+        ResponseBody rb = objectMapper.readValue(response.asString(), ResponseBody.class);
+        System.out.println(rb.getRecords().get(0).getId());
+        String recordId = rb.getRecords().get(0).getId();
     }
 
-    private String toJsonString(Object object){
-        String jsonString = null;
 
-        try {
-            jsonString = objectMapper
-                    .writerWithDefaultPrettyPrinter()
-                    .writeValueAsString(object);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        return jsonString;
+    @Test
+    public void UpdateRecord(){
+        Fields fields = new Fields();
+        fields.setFirstname("Safarbeg");
+        fields.setLastname("Like API Testing");
+        fields.setPhone("777-999-7777");
+        fields.setAddress("999 Test this API");
+
+        Record record = new Record();
+        record.setFields(fields);
+        record.setId("recordId");
+        List<Record> records = new ArrayList<>();
+        records.add(record);
+
+        RequestBody requestBody = new RequestBody();
+        requestBody.setRecords(records);
+
+        Response response = RestAssured.given()
+                .header("Authorization","Bearer keyUciDKN0atCXT7w")
+                .urlEncodingEnabled(false).contentType("application/json")
+                .body(requestBody)
+                .patch("https://api.airtable.com/v0/app14gUrLadaStkxx/Table%201");
+
+        Assert.assertEquals(response.getStatusCode(), 200);
+    }
+    @Test
+    public void deleteRecord() throws Exception {
+        Response response = RestAssured.given()
+                .header("Authorization", "Bearer " + "keyUciDKN0atCXT7w")
+                .urlEncodingEnabled(false).param("records[]", "recordId")
+                .delete("https://api.airtable.com/v0/app14gUrLadaStkxx/Table%201");
+
+        System.out.println(response.statusCode());
+        System.out.println(response.asString());
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        ResponseBody rb = objectMapper.readValue(response.asString(), ResponseBody.class);
     }
 }

@@ -10,4 +10,5 @@ import lombok.Data;
 public class Record {
 
     private Fields fields;
+    private String id;
 }
