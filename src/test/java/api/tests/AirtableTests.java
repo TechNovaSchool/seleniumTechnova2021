@@ -17,10 +17,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AirtableTests {
+    static String recordID;
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    @Test
+    @Test (priority = 1)
     public void getRecord() throws Exception {
         Response response = RestAssured.given()
                 .header("Authorization","Bearer " +"keyUciDKN0atCXT7w")
@@ -44,7 +45,7 @@ public class AirtableTests {
     }
 
 
-    @Test
+    @Test (priority = 2)
     public void postRecords() throws Exception{
         Fields fields = new Fields();
         fields.setFirstname("James");
@@ -69,11 +70,11 @@ public class AirtableTests {
         Assert.assertEquals(response.getStatusCode(), 200);
         ResponseBody rb = objectMapper.readValue(response.asString(), ResponseBody.class);
         System.out.println(rb.getRecords().get(0).getId());
-        String recordId = rb.getRecords().get(0).getId();
+        recordID = rb.getRecords().get(0).getId();
     }
 
 
-    @Test
+    @Test (priority = 3)
     public void UpdateRecord(){
         Fields fields = new Fields();
         fields.setFirstname("Safarbeg");
@@ -83,7 +84,7 @@ public class AirtableTests {
 
         Record record = new Record();
         record.setFields(fields);
-        record.setId("recordId");
+        record.setId(recordID);
         List<Record> records = new ArrayList<>();
         records.add(record);
 
@@ -98,11 +99,12 @@ public class AirtableTests {
 
         Assert.assertEquals(response.getStatusCode(), 200);
     }
-    @Test
+    @Test (priority = 4)
     public void deleteRecord() throws Exception {
+        System.out.println("record id " + recordID);
         Response response = RestAssured.given()
                 .header("Authorization", "Bearer " + "keyUciDKN0atCXT7w")
-                .urlEncodingEnabled(false).param("records[]", "recordId")
+                .urlEncodingEnabled(false).queryParam("records[]", recordID)
                 .delete("https://api.airtable.com/v0/app14gUrLadaStkxx/Table%201");
 
         System.out.println(response.statusCode());
