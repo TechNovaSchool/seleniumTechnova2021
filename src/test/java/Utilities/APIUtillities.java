@@ -13,6 +13,7 @@ public class APIUtillities {
     //GET, POST, Patch, DELETE
 
     private static ResponseBody responseBody;
+    private static ObjectMapper objectMapper;
 
     public static void hitGET(String resource) {
         String uri = Config.getProperty("baseURL" + resource);
@@ -22,7 +23,7 @@ public class APIUtillities {
         System.out.println("Status Code: " + response.statusCode());
 //        System.out.println(response.asString());
 
-        ObjectMapper objectMapper = new ObjectMapper();
+         objectMapper = new ObjectMapper();
 
         try {
             responseBody = objectMapper.readValue(response.asString(), ResponseBody.class);
@@ -34,8 +35,6 @@ public class APIUtillities {
     public static ResponseBody getResponseBody() {
         return responseBody;
     }
-
-
 
 
     public static void hitPOST(String resource, RequestBody body ) {
@@ -56,6 +55,12 @@ public class APIUtillities {
                 .post(uri);
         System.out.println("Status Code: " + response.statusCode());
         //        System.out.println(response.asString());
+        try{
+            responseBody = objectMapper.readValue(response.asString(), ResponseBody.class);
+        }
+        catch (Exception j){
+            j.printStackTrace();
+        }
     }
 
     public static void hitPATCH(String resource, RequestBody body ) {
@@ -76,6 +81,12 @@ public class APIUtillities {
                 .patch(uri);
         System.out.println("Status Code: " + response.statusCode());
         //        System.out.println(response.asString());
+        try{
+            responseBody = objectMapper.readValue(response.asString(), ResponseBody.class);
+        }
+        catch (Exception j){
+            j.printStackTrace();
+        }
     }
 
     public static void hitDELETE(String resource, String recordID) {
@@ -88,7 +99,7 @@ public class APIUtillities {
         System.out.println("Status Code: " + response.statusCode());
 //        System.out.println(response.asString());
 
-        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper = new ObjectMapper();
 
         try {
             responseBody = objectMapper.readValue(response.asString(), ResponseBody.class);

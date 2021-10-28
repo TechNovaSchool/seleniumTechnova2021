@@ -4,6 +4,7 @@ import Utilities.APIUtillities;
 import api.API_models.Fields;
 import api.API_models.Record;
 import api.API_models.RequestBody;
+import api.API_models.ResponseBody;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -17,6 +18,18 @@ public class APIUtilTest {
         APIUtillities.hitGET(resource);
         System.out.println(APIUtillities.getResponseBody().getRecords().get(1).getFields().getFirstname());
     }
+    @Test
+    public void getRecordForPhone() {
+        String resource = "";
+        APIUtillities.hitGET(resource);
+
+        for (Record elements : APIUtillities.getResponseBody().getRecords()) {
+            if(elements.getFields().getPhone().endsWith("7777")) {
+                System.out.println(elements.getFields().getFirstname());
+            }
+        }
+    }
+
 
     @Test
     public void postRecord() {
